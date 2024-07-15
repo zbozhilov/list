@@ -1,4 +1,4 @@
-# Nested Check List with search bar
+# Nested Check List with Search Bar
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ### Properties
