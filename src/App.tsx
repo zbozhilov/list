@@ -1,26 +1,94 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import List from './List/List';
+import { useState } from 'react';
+import { SectionItemProps } from './List/ListProps';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    
+    const [items, setItems] = useState<SectionItemProps[]>([
+        {
+            value: 'usa',
+            label: 'USA',
+            checked: false,
+            options: [
+                {
+                    value: 'nyc',
+                    label: 'New York City',
+                    checked: false,
+                },
+                {
+                    value: 'la',
+                    label: 'Los Angeles',
+                    checked: false,
+                },
+            ],
+        },
+        {
+            value: 'canada',
+            label: 'Canada',
+            checked: false,
+            options: [
+                {
+                    value: 'toronto',
+                    label: 'Toronto',
+                    checked: false,
+                },
+                {
+                    value: 'vancouver',
+                    label: 'Vancouver',
+                    checked: false,
+                },
+            ],
+        },
+        {
+            value: 'mexico',
+            label: 'Mexico',
+            checked: false,
+            options: [
+                {
+                    value: 'mexico-city',
+                    label: 'Mexico City',
+                    checked: false,
+                },
+                {
+                    value: 'cancun',
+                    label: 'Cancun',
+                    checked: false,
+                },
+            ],
+        },
+        {
+            value: 'uk',
+            label: 'UK',
+            checked: false,
+            options: [
+                {
+                    value: 'london',
+                    label: 'London',
+                    checked: false,
+                },
+                {
+                    value: 'manchester',
+                    label: 'Manchester',
+                    checked: false,
+                },
+            ],
+        },
+    ]);
+
+    return (
+        <div className='App'>
+            <List
+                items={items}
+                enableSearch={true}
+                enableScrollbar={true}
+                onChange={(items) => {
+                    setItems(items);
+                }}
+            />
+        </div>
+    );
 }
 
 export default App;

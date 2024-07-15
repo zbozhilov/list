@@ -1,0 +1,121 @@
+$containerBorderRadius: 20px;
+$spacing: 20px;
+$sectionSpacing: 20px;
+$optionsIndent: 40px;
+$sectionTextColor: #202020;
+$optionsTextColor: #202020;
+
+.zb-list {
+    background-color: #fff;
+    border-radius: $containerBorderRadius;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    box-sizing: border-box;
+
+    &-search {
+        width: 100%;
+
+        input {
+            width: 100%;
+            border: none;
+            border: 1px solid #ddd;
+            background-color: #f0f0f0;
+            padding: 12px 16px;
+            box-sizing: border-box;
+            border-radius: 12px;
+            font-size: 14px;
+        }
+    }
+
+    &-section {
+        &-header {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: $spacing;
+            padding-bottom: $spacing;
+
+            &-title {
+                font-size: 16px;
+                font-weight: 500;
+                color: $sectionTextColor;
+            }
+
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        &-options {
+            padding-left: $optionsIndent;
+
+            &-option {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                gap: $spacing;
+                margin-top: $spacing;
+
+                &-title {
+                    font-size: 14px;
+                    font-weight: 400;
+                    color: $optionsTextColor;
+                }
+            }
+        }
+
+        &:not(:last-child) {
+            margin-bottom: $spacing;
+        }
+
+        margin-top: $sectionSpacing;
+    }
+
+    &-scroll {
+        overflow-y: auto;
+
+        &:not(:empty) {
+            margin-top: $sectionSpacing;
+        }
+        
+        &::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: #ddd;
+            border-radius: 6px;
+        }
+
+        @-moz-document url-prefix() {
+            scroll-behavior: auto;
+            scrollbar-width: thin;
+            scrollbar-color: #ddd #fff;
+        }
+
+        .zb-list-section {
+            &:first-child {
+                margin-top: 0;
+            }
+        }
+    }
+}
+
+.zb-list-checkbox {
+    $size: 20px;
+    border: 1px solid #ddd;
+    background-color: #f0f0f0;
+    width: $size;
+    height: $size;
+    border-radius: 4px;
+    cursor: pointer;
+
+    span,
+    i {
+        display: block;
+        font-size: 14px;
+        color: #202020;
+        text-align: center;
+        width: 100%;
+        line-height: $size;
+    }
+}
